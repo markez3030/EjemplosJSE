@@ -3,7 +3,7 @@ package com.ipartek.formacion.ejecicioLibro.dado;
 public class Dado {
 
 	private static String [] aAlumnos={"Aaron","Eneko","Itsaso","Ivan","Guillermo","Lozoya","Josu","Ignacio","Gomez"
-			,"Nerea","Nagore","Garbiñe","Egoitz","Pavel","Pérez"};
+			,"Nerea","Nagore","Garbiñe","Egoitz","Pavel","Pérez","Raul"};
 	
 	public static void main(String[] args) {
 		
