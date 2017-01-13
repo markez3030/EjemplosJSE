@@ -10,7 +10,7 @@ public class Receta {
 	private String dificultad;
 	private String comensales;
 	private String descripcion;
-	private static boolean glutenFree;
+	private static String glutenFree;
 
 	public Receta() {
 		super();
@@ -25,6 +25,7 @@ public class Receta {
 		this.setDificultad(dificultad);
 		this.setComensales(comensales);
 		this.setDescripcion(descripcion);
+		glutenFree=null;
 	}
 
 	public Receta(String titulo, int tiempo, String dificultad, String comensales, String descripcion) {
@@ -35,6 +36,7 @@ public class Receta {
 		this.setDificultad(dificultad);
 		this.setComensales(comensales);
 		this.setDescripcion(descripcion);
+		glutenFree=null;
 	}
 
 	public String getTitulo() {
@@ -99,6 +101,7 @@ public class Receta {
 				mensaje += i.toString();
 			}
 		}
+		mensaje+="\n--------RESUMEN------\n";
 		if(this.tiempo==0)
 			mensaje += "Tiempo: no se ha introducido tiempo estimado"  ;
 		else
@@ -107,7 +110,7 @@ public class Receta {
 		if(this.ingrediente!=null)
 		{
 			isglutenFree();
-			mensaje+= "\nLibre de gluten: " + glutenFree;
+			mensaje+= "\nContiene gluten: " + glutenFree;
 		}
 		mensaje+= "\nComensales: " + this.comensales
 				+ "\nDescripcion:\n" + this.descripcion;
@@ -119,18 +122,20 @@ public class Receta {
 	public void isglutenFree() {
 		for (Ingrediente i : this.ingrediente) {
 			if (i.isGluten() == true) {
-				glutenFree=true;
+				glutenFree="Si";
+				break;
 			}
 		}
-		glutenFree=false;
+		if(glutenFree==null)
+		glutenFree="No";
 
 	}
 
-	public static boolean isGlutenFree() {
+	public static String isGlutenFree() {
 		return glutenFree;
 	}
 
-	public static void setGlutenFree(boolean glutenFree) {
+	public static void setGlutenFree(String glutenFree) {
 		Receta.glutenFree = glutenFree;
 	}
 

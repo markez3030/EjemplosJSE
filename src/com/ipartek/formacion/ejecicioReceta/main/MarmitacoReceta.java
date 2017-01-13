@@ -18,7 +18,7 @@ public class MarmitacoReceta {
 		hashIngredientes.add(new Ingrediente("Pimiento Rojo" , 1 ,false));
 		hashIngredientes.add(new Ingrediente("Cabeza de ajo" , 1 ,false));
 		hashIngredientes.add(new Ingrediente("Pimiento Choricero" , 4 ,false));
-		hashIngredientes.add(new Ingrediente("Pan de sopa" , 40 ,false));
+		hashIngredientes.add(new Ingrediente("Pan de sopa" , 40 ,true));
 		hashIngredientes.add(new Ingrediente("Salsa de tomate" , 1 ,false));
 		hashIngredientes.add(new Ingrediente("Agua" ,false));
 		hashIngredientes.add(new Ingrediente("Brandy" , 1 ,false));

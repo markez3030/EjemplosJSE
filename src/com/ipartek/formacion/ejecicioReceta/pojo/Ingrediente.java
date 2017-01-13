@@ -62,12 +62,16 @@ public class Ingrediente {
 
 	@Override
 	public String toString() {
-		String mensaje= "Nombre: " + this.nombre;
+		String mensaje= "\n-->Nombre: " + this.nombre+"\n";
 		if(this.cantidad!=0)
 		{
-			mensaje+="\nCantidad:" + this.cantidad;
+			mensaje+="Cantidad:" + this.cantidad+"\n";
 		}
-		mensaje += "\nGluten:" + this.gluten + "\n\n";
+		if(this.gluten)
+		{
+			mensaje += "Gluten: Si contiene\n";
+
+		}
 		
 		return mensaje;
 	}
