@@ -1,4 +1,6 @@
-package com.ipartek.formacion.ejecicioLibro.dado;
+package com.ipartek.formacion.ejecicioDado.main;
+
+import com.ipartek.formacion.ejecicioDado.pojo.Utilidades;
 
 public class Dado {
 

@@ -1,4 +1,4 @@
-package com.ipartek.formacion.ejecicioLibro.dado;
+package com.ipartek.formacion.ejecicioDado.pojo;
 
 import static org.junit.Assert.*;
 
