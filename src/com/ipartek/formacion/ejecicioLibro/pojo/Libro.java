@@ -1,4 +1,4 @@
-package com.ipartek.formacion.ejecicioLibro.libro.pojo;
+package com.ipartek.formacion.ejecicioLibro.pojo;
 
 /**
  * 

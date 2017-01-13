@@ -1,7 +1,7 @@
-package com.ipartek.formacion.ejecicioLibro.libro.main;
+package com.ipartek.formacion.ejecicioLibro.main;
 
-import com.ipartek.formacion.ejecicioLibro.libro.pojo.ImprimirNombres;
-import com.ipartek.formacion.ejecicioLibro.libro.pojo.Libro;
+import com.ipartek.formacion.ejecicioLibro.pojo.ImprimirNombres;
+import com.ipartek.formacion.ejecicioLibro.pojo.Libro;
 
 public class TopVentasLibro {
 
