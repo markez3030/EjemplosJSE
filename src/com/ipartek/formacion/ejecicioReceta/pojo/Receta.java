@@ -93,14 +93,16 @@ public class Receta {
 	@Override
 	public String toString() {
 		String mensaje = "RECETA: " + this.titulo.toUpperCase() + "\n***************************\n";
+		mensaje += "\n---INGREDIENTES---\n";
 		if (this.ingrediente != null) {
 			Ingrediente i = null;
-			mensaje += "\n---INGREDIENTES---\n";
 			for (int x = 0; x < this.ingrediente.size(); x++) {
 				i = this.ingrediente.get(x);
 				mensaje += i.toString();
 			}
 		}
+		else
+			mensaje+="ESTA RECETA NO TIENE INGREDIENTES AÑADIDOS";
 		mensaje+="\n--------RESUMEN------\n";
 		if(this.tiempo==0)
 			mensaje += "Tiempo: no se ha introducido tiempo estimado"  ;
