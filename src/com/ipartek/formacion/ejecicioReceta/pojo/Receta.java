@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Receta {
 
+	public String IMG_DEFAULT="https://www.google.es/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiq65u6y8bRAhWCWBQKHQclAYYQjRwIBw&url=http%3A%2F%2Fapps.enyojs.com%2F&psig=AFQjCNFDYwHY512orEOasGhk5iiAZVIyMg&ust=1484653483552680";
+	
 	private String titulo;
 	private ArrayList<Ingrediente> ingrediente;
 	private int tiempo;
@@ -11,6 +13,7 @@ public class Receta {
 	private String comensales;
 	private String descripcion;
 	private String contieneGluten;
+	private String imagen;
 
 	public Receta() {
 		super();
@@ -36,8 +39,23 @@ public class Receta {
 		this.setComensales(comensales);
 		this.setDescripcion(descripcion);
 		this.setContieneGluten("No");
+		this.imagen=IMG_DEFAULT;
+	}
+	
+	public Receta(String titulo) {
+		super();
+		this.setTitulo(titulo);
+		this.setIngrediente(null);
+		this.setTiempo(0);
+		this.setDificultad("sencilla");
+		this.setComensales("2");
+		this.setDescripcion("");
+		this.setContieneGluten("No");
+		this.imagen=IMG_DEFAULT;
 		
 	}
+	
+	
 
 	public Receta(String titulo, int tiempo, String dificultad, String comensales, String descripcion) {
 		super();
@@ -48,6 +66,8 @@ public class Receta {
 		this.setComensales(comensales);
 		this.setContieneGluten("No");
 		this.setDescripcion(descripcion);
+		this.imagen=IMG_DEFAULT;
+
 
 	}
 
@@ -213,6 +233,16 @@ public class Receta {
 		return isIngrediente;
 	}
 	
+
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
+	
 	@Override
 	public String toString() {
 		String mensaje = "RECETA: " + this.titulo.toUpperCase()
@@ -251,7 +281,7 @@ public class Receta {
 			mensaje += "\nContiene gluten: " + getContieneGluten();
 		}
 		mensaje += "\nComensales: " + this.comensales + "\nDescripcion:\n" + this.descripcion;
-
+		mensaje+="\n"+this.imagen;
 		return mensaje;
 	}
 
