@@ -75,7 +75,12 @@ public class Burro extends Animal implements IConducible, ICocinable,IVendible {
 	public String toString() {
 		String mensaje=super.toString();
 		mensaje+="\nNombre:" +this.nombre;
-		mensaje+="\nComestibe: Si\n";
+		if(this instanceof ICocinable)
+			mensaje+="\nComestibe: Si\n";
+		else
+			mensaje+="\nComestibe: No\n";
+
+	
 		return mensaje;
 	}
 		

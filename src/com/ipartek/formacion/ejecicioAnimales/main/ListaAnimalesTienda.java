@@ -32,6 +32,7 @@ public class ListaAnimalesTienda {
 			if(vendible instanceof Burro)
 			{
 				b= ((Burro) vendible);
+				
 				System.out.println(b.toString());
 			}
 			else if(vendible instanceof Pajaro)
