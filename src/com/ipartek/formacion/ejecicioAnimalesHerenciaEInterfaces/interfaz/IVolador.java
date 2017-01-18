@@ -1,4 +1,4 @@
-package com.ipartek.formacion.ejecicioAnimales.interfaz;
+package com.ipartek.formacion.ejecicioAnimalesHerenciaEInterfaces.interfaz;
 
 public interface IVolador {
 

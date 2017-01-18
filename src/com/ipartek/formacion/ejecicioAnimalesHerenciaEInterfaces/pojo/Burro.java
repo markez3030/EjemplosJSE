@@ -1,28 +1,25 @@
-package com.ipartek.formacion.ejecicioAnimales.pojo;
+package com.ipartek.formacion.ejecicioAnimalesHerenciaEInterfaces.pojo;
 
 import java.util.ArrayList;
 
-import com.ipartek.formacion.ejecicioAnimales.interfaz.ICocinable;
-import com.ipartek.formacion.ejecicioAnimales.interfaz.IConducible;
-import com.ipartek.formacion.ejecicioAnimales.interfaz.IVendible;
+import com.ipartek.formacion.ejecicioAnimalesHerenciaEInterfaces.interfaz.ICocinable;
+import com.ipartek.formacion.ejecicioAnimalesHerenciaEInterfaces.interfaz.IConducible;
+import com.ipartek.formacion.ejecicioAnimalesHerenciaEInterfaces.interfaz.IVendible;
 import com.ipartek.formacion.ejecicioReceta.pojo.Ingrediente;
 
-public class Burro extends Animal implements IConducible, ICocinable,IVendible {
+public class Burro extends Animal implements IConducible, ICocinable, IVendible {
 
 	private String nombre;
-	
-	
 
-	public Burro(String raza, String familia, int precio, String nombre) {
+	public Burro(String raza, String familia, float precio, String nombre) {
 		super(raza, familia, precio);
 		this.setNombre(nombre);
 	}
-	
-	public Burro(String raza, String familia, int precio) {
+
+	public Burro(String raza, String familia, float precio) {
 		super(raza, familia, precio);
 
 	}
-	
 
 	public String getNombre() {
 		return nombre;
@@ -47,12 +44,12 @@ public class Burro extends Animal implements IConducible, ICocinable,IVendible {
 	@Override
 	public void girar(String direccion) {
 		// TODO Auto-generated method stub
-		System.out.println("El burro gira a la "+direccion);
+		System.out.println("El burro gira a la " + direccion);
 	}
 
 	@Override
 	public ArrayList<Ingrediente> getIngredientes() {
-		ArrayList<Ingrediente> listIngrediente= new ArrayList<Ingrediente>();
+		ArrayList<Ingrediente> listIngrediente = new ArrayList<Ingrediente>();
 		listIngrediente.add(new Ingrediente("Sal", true));
 		listIngrediente.add(new Ingrediente("Pimienta", true));
 		return listIngrediente;
@@ -67,23 +64,19 @@ public class Burro extends Animal implements IConducible, ICocinable,IVendible {
 	@Override
 	public void generarFactura() {
 		// TODO Auto-generated method stub
-		System.out.println("Factura: "+super.getPrecio()+"€");
+		System.out.println("Factura: " + super.getPrecio() + "€");
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		String mensaje=super.toString();
-		mensaje+="\nNombre:" +this.nombre;
-		if(this instanceof ICocinable)
-			mensaje+="\nComestibe: Si\n";
+		String mensaje = super.toString();
+		mensaje += "\nNombre:" + this.nombre;
+		if (this instanceof ICocinable)
+			mensaje += "\nComestibe: Si\n";
 		else
-			mensaje+="\nComestibe: No\n";
+			mensaje += "\nComestibe: No\n";
 
-	
 		return mensaje;
 	}
-		
-	
 
 }

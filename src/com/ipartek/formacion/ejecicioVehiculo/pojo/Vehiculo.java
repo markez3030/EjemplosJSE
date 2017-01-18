@@ -1,6 +1,6 @@
 package com.ipartek.formacion.ejecicioVehiculo.pojo;
 
-import com.ipartek.formacion.ejecicioAnimales.interfaz.IConducible;
+import com.ipartek.formacion.ejecicioAnimalesHerenciaEInterfaces.interfaz.IConducible;
 
 public class Vehiculo implements IConducible {
 
