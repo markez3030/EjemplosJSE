@@ -3,6 +3,7 @@ package com.ipartek.formacion.ejecicioReceta.pojo;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,6 +15,10 @@ public class RecetaTest {
 
 	private Receta recetaConIngredientes = null;
 	private Receta recetaSinIngredientes = null;
+	private ArrayList<Receta> lr = null;
+	private Receta r2 =null;
+	private Receta r3 = null;
+	private Receta r4 =null;
 	/**
 	 * Metodo que se ejecuta antes del test
 	 * @throws Exception
@@ -38,10 +43,19 @@ public class RecetaTest {
 	public void setUp() throws Exception {
 		ArrayList<Ingrediente> lIngredientes = new ArrayList<Ingrediente>();
 		lIngredientes.add(new Ingrediente("Patatas", 4, false));
-		recetaConIngredientes = new Receta("Marmitako de bonito", lIngredientes, -20, "Sencilla", "4-6 personas",
+		recetaConIngredientes = new Receta("Marmitako de bonito", lIngredientes, -20,Receta.FACIL, "4-6 personas",
 				"Retira el rabo y las pepitas a los pimientos choriceros y ponlos a hidratar en un cuenco con agua caliente.");
-		recetaSinIngredientes = new Receta("Marmitako de bonito", null, -20, "Sencilla", "4-6 personas",
+		recetaSinIngredientes = new Receta("Marmitako de bonito", null, -20, Receta.FACIL, "4-6 personas",
 				"Retira el rabo y las pepitas a los pimientos choriceros y ponlos a hidratar en un cuenco con agua caliente.");
+	
+		lr = new ArrayList<Receta>();
+		r2 = new Receta("Solomillo");
+		r3 = new Receta("Marmitako de bonito");
+		r4 = new Receta("Atun");
+
+		r2.setDificultad(Receta.MODERADO);
+		r3.setDificultad(Receta.FACIL);
+		r4.setDificultad(Receta.DIFICIL);
 	}
 	/**
 	 * Metodo que se ejecuta despues de cada ejecucion de cada metodo del test
@@ -51,6 +65,10 @@ public class RecetaTest {
 	public void tearDown() throws Exception {
 		recetaSinIngredientes = null;
 		recetaConIngredientes = null;
+		lr=null;
+		r2=null;
+		r3=null;
+		r4=null;
 	}
 
 	@Test
@@ -121,6 +139,35 @@ public class RecetaTest {
 		assertFalse(recetaSinIngredientes.removeIngrediente("Peperoni"));
 		assertFalse(recetaSinIngredientes.removeIngrediente(i2));
 	}
+	
+	@Test
+	public void testCompareTo() {
+		// TODO Auto-generated method stub
+		final String MSG_ERROR_TITULO="NO ORDENA POR TITULO";
+		lr.add(r2);
+		lr.add(r3);
+		lr.add(r4);
+		Collections.sort(lr, new Receta().getNuevoComparatorReceta());
+		assertEquals(MSG_ERROR_TITULO,r4, lr.get(0));
+		assertEquals(MSG_ERROR_TITULO,r3, lr.get(1));
+		assertEquals(MSG_ERROR_TITULO,r2, lr.get(2));
+	}
+	
+	@Test
+	public void testCompare() {
+		// TODO Auto-generated method stub
+		final String MSG_ERROR_DIFICULTAD="NO ORDENA POR NIVEL DE DIFICULTAD";
+		lr.add(r2);
+		lr.add(r3);
+		lr.add(r4);
+		Collections.sort(lr);
+		assertEquals(MSG_ERROR_DIFICULTAD,r3, lr.get(0));
+		assertEquals(MSG_ERROR_DIFICULTAD,r2, lr.get(1));
+		assertEquals(MSG_ERROR_DIFICULTAD,r4, lr.get(2));
+	}
+
+	
+
 
 	private ArrayList<Ingrediente> crearIngredientes(boolean caso1, boolean caso2) {
 		ArrayList<Ingrediente> lIngredientes = new ArrayList<Ingrediente>();
@@ -128,5 +175,7 @@ public class RecetaTest {
 		lIngredientes.add(new Ingrediente("Patatas", 4, caso2));
 		return lIngredientes;
 	}
+	
+	
 
 }

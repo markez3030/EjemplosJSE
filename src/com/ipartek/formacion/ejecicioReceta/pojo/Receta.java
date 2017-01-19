@@ -1,11 +1,17 @@
 package com.ipartek.formacion.ejecicioReceta.pojo;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+public class Receta implements Comparable<Receta> {
 
-public class Receta {
+	public final String IMG_DEFAULT = "https://www.google.es/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiq65u6y8bRAhWCWBQKHQclAYYQjRwIBw&url=http%3A%2F%2Fapps.enyojs.com%2F&psig=AFQjCNFDYwHY512orEOasGhk5iiAZVIyMg&ust=1484653483552680";
 
-	public String IMG_DEFAULT="https://www.google.es/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwiq65u6y8bRAhWCWBQKHQclAYYQjRwIBw&url=http%3A%2F%2Fapps.enyojs.com%2F&psig=AFQjCNFDYwHY512orEOasGhk5iiAZVIyMg&ust=1484653483552680";
-	
+	public final static String FACIL = "Facil";
+
+	public final static String MODERADO = "Moderado";
+
+	public final static String DIFICIL = "Dificil";
+
 	private String titulo;
 	private ArrayList<Ingrediente> ingrediente;
 	private int tiempo;
@@ -39,23 +45,21 @@ public class Receta {
 		this.setComensales(comensales);
 		this.setDescripcion(descripcion);
 		this.setContieneGluten("No");
-		this.imagen=IMG_DEFAULT;
+		this.imagen = IMG_DEFAULT;
 	}
-	
+
 	public Receta(String titulo) {
 		super();
 		this.setTitulo(titulo);
 		this.setIngrediente(null);
 		this.setTiempo(0);
-		this.setDificultad("sencilla");
+		this.setDificultad(" ");
 		this.setComensales("2");
 		this.setDescripcion("");
 		this.setContieneGluten("No");
-		this.imagen=IMG_DEFAULT;
-		
+		this.imagen = IMG_DEFAULT;
+
 	}
-	
-	
 
 	public Receta(String titulo, int tiempo, String dificultad, String comensales, String descripcion) {
 		super();
@@ -66,8 +70,7 @@ public class Receta {
 		this.setComensales(comensales);
 		this.setContieneGluten("No");
 		this.setDescripcion(descripcion);
-		this.imagen=IMG_DEFAULT;
-
+		this.imagen = IMG_DEFAULT;
 
 	}
 
@@ -158,9 +161,11 @@ public class Receta {
 	}
 
 	/**
-	 * Metodo que añade un ingrediente a la lista de ingredientes
-	 * Si es nulo devuelve false
-	 * @param i Ingrediente que se quiere añadir a la lista
+	 * Metodo que añade un ingrediente a la lista de ingredientes Si es nulo
+	 * devuelve false
+	 * 
+	 * @param i
+	 *            Ingrediente que se quiere añadir a la lista
 	 * @return
 	 */
 	public boolean addIngrediente(Ingrediente i) {
@@ -174,12 +179,14 @@ public class Receta {
 
 	/**
 	 * Metodo que borra un ingrediente pasandole un {@code Ingrediente}
-	 * @param i Ingrediente que se quiere borrar
+	 * 
+	 * @param i
+	 *            Ingrediente que se quiere borrar
 	 * @return true si borra el ingrediente. False si no lo encuentra
 	 */
 	public boolean removeIngrediente(Ingrediente i) {
 		Ingrediente i2 = null;
-		if(i!=null){
+		if (i != null) {
 			for (int x = 0; x < this.ingrediente.size(); x++) {
 				i2 = this.ingrediente.get(x);
 				if (i2.getNombre().equalsIgnoreCase(i.getNombre())) {
@@ -188,17 +195,20 @@ public class Receta {
 				}
 			}
 		}
-		
+
 		return false;
 	}
+
 	/**
 	 * Metodo que borra un ingrediente pasandole el nombre del ingediente
-	 * @param i Ingrediente que se quiere borrar
+	 * 
+	 * @param i
+	 *            Ingrediente que se quiere borrar
 	 * @return true si borra el ingrediente. False si no lo encuentra
 	 */
 	public boolean removeIngrediente(String nombre) {
 		Ingrediente i2 = null;
-		if(nombre!=null){
+		if (nombre != null) {
 			for (int x = 0; x < this.ingrediente.size(); x++) {
 				i2 = this.ingrediente.get(x);
 				if (i2.getNombre().equalsIgnoreCase(nombre)) {
@@ -207,32 +217,31 @@ public class Receta {
 				}
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	/**
 	 * Compueba si contiene el ingrediente pasado como parametro
-	 * @param ingrediente a buscar
-	 * @return true si contiene ingrediente
-	 * 		   false en caso contrario
+	 * 
+	 * @param ingrediente
+	 *            a buscar
+	 * @return true si contiene ingrediente false en caso contrario
 	 */
-	public boolean contiene(Ingrediente ingrediente)
-	{
+	public boolean contiene(Ingrediente ingrediente) {
 		Ingrediente i2 = null;
-		boolean isIngrediente=false;
-		if(ingrediente!=null){
+		boolean isIngrediente = false;
+		if (ingrediente != null) {
 			for (int x = 0; x < this.ingrediente.size(); x++) {
 				i2 = this.ingrediente.get(x);
 				if (i2.getNombre().equalsIgnoreCase(ingrediente.getNombre())) {
-					isIngrediente= true;
+					isIngrediente = true;
 					break;
 				}
 			}
 		}
 		return isIngrediente;
 	}
-	
 
 	public String getImagen() {
 		return imagen;
@@ -242,7 +251,6 @@ public class Receta {
 		this.imagen = imagen;
 	}
 
-	
 	@Override
 	public String toString() {
 		String mensaje = "RECETA: " + this.titulo.toUpperCase()
@@ -281,8 +289,65 @@ public class Receta {
 			mensaje += "\nContiene gluten: " + getContieneGluten();
 		}
 		mensaje += "\nComensales: " + this.comensales + "\nDescripcion:\n" + this.descripcion;
-		mensaje+="\n"+this.imagen;
+		mensaje += "\n" + this.imagen;
 		return mensaje;
+	}
+
+	public ComparatorRecetaNivel getNuevoComparatorReceta()
+	{
+		return new ComparatorRecetaNivel();
+	}
+	
+	@Override
+	/**
+	 * Metodo que marca el orden natural de una receta por titulo
+	 * El metodo compareTo seria como querrias ordenar una clase por defecto.
+	 */
+	public int compareTo(Receta o) {
+		// TODO Auto-generated method stub
+		return getPesoDificultad(this) - getPesoDificultad(o);
+	}
+	
+	private int getPesoDificultad(Receta r)
+	{
+		int result=0;
+		switch (r.getDificultad()) {
+		case Receta.FACIL:
+				result=0;
+			break;
+		case Receta.MODERADO:
+			result=5;
+		break;
+		case Receta.DIFICIL:
+			result=10;
+		break;
+		default:
+			break;
+		}
+		return result;
+	}
+	
+		
+	
+
+	/**
+	 * Clase {@code ComparatorRecetaNivel} que ordena por nivel de dificultad la receta.
+	 * Por cada comparacion que queramos hacer tendremos que hacer un comparador nuevo
+	 * @author Curso
+	 *
+	 */
+	class ComparatorRecetaNivel implements Comparator<Receta> {
+		@Override
+		/**
+		 * Metodo que compara dos recetas. No tiene sensibilidad a mayuscular y
+		 * minusculas. (tortilla=TORTILLA)
+		 */
+		public int compare(Receta o1, Receta o2) {
+			return (o1.getTitulo().toLowerCase()).compareTo(o2.getTitulo().toLowerCase());
+
+		}
+		
+		
 	}
 
 }
