@@ -4,9 +4,9 @@ import java.util.Comparator;
 
 import com.ipartek.formacion.ejecicioAnimalesHerenciaEInterfaces.interfaz.IVendible;
 import com.ipartek.formacion.ejecicioAnimalesHerenciaEInterfaces.interfaz.IVolador;
-import com.ipartek.formacion.ejecicioEstupidoVehiculoPajaros.interfaz.InterfazEstupido;
+import com.ipartek.formacion.ejecicioEstupidoVehiculoPajaros.interfaz.InterfazEstupida;
 
-public class Pajaro extends Animal implements IVolador, IVendible, InterfazEstupido {
+public class Pajaro extends Animal implements IVolador, IVendible, InterfazEstupida {
 
 	private boolean puedeVolar;
 	private int huevosSemana;

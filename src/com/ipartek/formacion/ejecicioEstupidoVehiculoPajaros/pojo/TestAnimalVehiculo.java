@@ -12,15 +12,15 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.ipartek.formacion.ejecicioEstupidoVehiculoPajaros.interfaz.ComparatorEstupido;
-import com.ipartek.formacion.ejecicioEstupidoVehiculoPajaros.interfaz.InterfazEstupido;
+import com.ipartek.formacion.ejecicioEstupidoVehiculoPajaros.interfaz.InterfazEstupida;
 
 public class TestAnimalVehiculo {
 
-	private ArrayList<InterfazEstupido> lr = null;
-	private Vehiculo v1 = null;
-	private Vehiculo v2 = null;
-	private Pajaro p1 = null;
-	private Pajaro p2 = null;
+	private ArrayList<InterfazEstupida> lr = null;
+	private Vehiculo vSeat = null;
+	private Vehiculo vFord = null;
+	private Pajaro pKiwi = null;
+	private Pajaro pGallina = null;
 
 	/**
 	 * Metodo que se ejecuta antes del test
@@ -48,19 +48,19 @@ public class TestAnimalVehiculo {
 	@Before
 	public void setUp() throws Exception {
 
-		lr = new ArrayList<InterfazEstupido>();
-		v1 = new Vehiculo("Seat");
-		p1 = new Pajaro("Kiwi");
-		v2 = new Vehiculo("Ford K");
-		p2 = new Pajaro("Gallina");
-		v1.setPotencia(500);
-		v2.setPotencia(100);
-		p1.setHuevosSemana(2);
-		p2.setHuevosSemana(700);
-		lr.add(v1);
-		lr.add(v2);
-		lr.add(p1);
-		lr.add(p2);
+		lr = new ArrayList<InterfazEstupida>();
+		vSeat = new Vehiculo("Seat");
+		pKiwi = new Pajaro("Kiwi");
+		vFord = new Vehiculo("Ford K");
+		pGallina = new Pajaro("Gallina");
+		vSeat.setPotencia(500);
+		vFord.setPotencia(100);
+		pKiwi.setHuevosSemana(2);
+		pGallina.setHuevosSemana(700);
+		lr.add(vSeat);
+		lr.add(vFord);
+		lr.add(pKiwi);
+		lr.add(pGallina);
 
 	}
 
@@ -72,10 +72,10 @@ public class TestAnimalVehiculo {
 	@After
 	public void tearDown() throws Exception {
 		lr = null;
-		v1 = null;
-		p1 = null;
-		v2 = null;
-		p2 = null;
+		vSeat = null;
+		pKiwi = null;
+		vFord = null;
+		pGallina = null;
 
 	}
 
@@ -83,10 +83,10 @@ public class TestAnimalVehiculo {
 	public void ordenarPorPeso() {
 
 		Collections.sort(lr, new ComparatorEstupido());
-		assertEquals(p1, lr.get(0));
-		assertEquals(v2, lr.get(1));
-		assertEquals(v1, lr.get(2));
-		assertEquals(p2, lr.get(3));
+		assertEquals(pKiwi, lr.get(0));
+		assertEquals(vFord, lr.get(1));
+		assertEquals(vSeat, lr.get(2));
+		assertEquals(pGallina, lr.get(3));
 	}
 
 }

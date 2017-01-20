@@ -3,10 +3,10 @@ package com.ipartek.formacion.ejecicioEstupidoVehiculoPajaros.pojo;
 import java.util.Comparator;
 
 import com.ipartek.formacion.ejecicioAnimalesHerenciaEInterfaces.interfaz.IConducible;
-import com.ipartek.formacion.ejecicioEstupidoVehiculoPajaros.interfaz.InterfazEstupido;
+import com.ipartek.formacion.ejecicioEstupidoVehiculoPajaros.interfaz.InterfazEstupida;
 import com.ipartek.formacion.ejecicioReceta.pojo.Receta;
 
-public class Vehiculo implements IConducible,InterfazEstupido {
+public class Vehiculo implements IConducible,InterfazEstupida {
 
 	private String modelo;
 	private int plazas;
